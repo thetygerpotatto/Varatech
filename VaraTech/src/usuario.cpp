@@ -1,11 +1,11 @@
 #include "usuario.h"
 #include <iostream>
 
-User::User(Privilege p)
+User::User()
 {
     name = last_name = password = address = "-";
     status = true;
-    UserPrivilege = (Privilege)p;
+    UserPrivilege = Privilege::none;
 }
 
 
@@ -65,4 +65,8 @@ void User::togleStatus(short val) {
     else {
         status = true;
     }
+}
+
+Privilege User::getPrivillege() {
+    return UserPrivilege;
 }

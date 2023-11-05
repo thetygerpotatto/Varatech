@@ -2,14 +2,15 @@
 #define USUARIO_H
 
 #include <iostream>
+
 enum Privilege {
-    seller, admin
+    none, seller, admin
 };
 
 class User
 {
     public:
-        User(Privilege);
+        User();
         virtual ~User();
 
         long GetCD();
@@ -24,9 +25,8 @@ class User
         std::string Getpassword();
         bool Getstatus();
         void togleStatus(short val);
+        Privilege getPrivillege();
     protected:
-
-    private:
         long CD;
         std::string password;
         std::string name;
@@ -34,8 +34,10 @@ class User
         std::string address;
 
         bool status;
-
         Privilege UserPrivilege;
+    private:
+
+
 };
 
 #endif // USUARIO_H

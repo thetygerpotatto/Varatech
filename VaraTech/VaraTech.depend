@@ -1,13 +1,29 @@
 # depslib dependency file v1.0
-1699216748 source:c:\dev\varatech\varatech\src\usuario.cpp
+1699221078 source:c:\dev\varatech\varatech\src\usuario.cpp
 	"usuario.h"
 	<iostream>
 
-1699216750 c:\dev\varatech\varatech\include\usuario.h
+1699221043 c:\dev\varatech\varatech\include\usuario.h
 	<iostream>
 
-1699216721 source:c:\dev\varatech\varatech\main.cpp
+1699221976 source:c:\dev\varatech\varatech\main.cpp
 	<iostream>
 	<vector>
 	<usuario.h>
+	<admin.h>
+	<seller.h>
+
+1699222186 source:c:\dev\varatech\varatech\src\admin.cpp
+	"admin.h"
+
+1699222203 c:\dev\varatech\varatech\include\admin.h
+	<iostream>
+	"usuario.h"
+
+1699222146 source:c:\dev\varatech\varatech\src\seller.cpp
+	"seller.h"
+
+1699222086 c:\dev\varatech\varatech\include\seller.h
+	"usuario.h"
+	<iostream>
 
