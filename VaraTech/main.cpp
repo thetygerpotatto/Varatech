@@ -1,9 +1,12 @@
 #include <iostream>
+#include <vector>
+#include <usuario.h>
 
-using namespace std;
+std::vector<User> users;
+User jaime(Privilege::admin);
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    std::cout << jaime.Getname() << std::endl;
     return 0;
 }

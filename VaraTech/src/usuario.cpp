@@ -1,28 +1,68 @@
 #include "usuario.h"
 #include <iostream>
 
-usuario::usuario()
+User::User(Privilege p)
 {
-    //ctor
+    name = last_name = password = address = "-";
+    status = true;
+    UserPrivilege = (Privilege)p;
 }
 
-usuario::~usuario()
+
+User::~User()
 {
     //dtor
 }
 
-long usuario::GetCD() {
+long User::GetCD() {
     return CD;
 }
 
-void usuario::SetCD(long val) {
+void User::SetCD(long val) {
     CD = val;
 }
 
-std::string usuario::Getname() {
+std::string User::Getname() {
     return name;
 }
 
-void usuario::Setname(std::string val) {
+void User::Setname(std::string val) {
     name = val;
+}
+
+std::string User::Getlast_name() {
+    return last_name;
+}
+
+void User::Setlast_name(std::string val) {
+    last_name = val;
+}
+
+void User::Setaddress(std::string val) {
+    address = val;
+}
+
+std::string User::Getaddress() {
+    return address;
+}
+
+void User::Setpassword(std::string val) {
+    password = val;
+}
+
+std::string User::Getpassword() {
+    return password;
+}
+
+bool User::Getstatus() {
+    return status;
+}
+
+void User::togleStatus(short val) {
+    if (val == 0) {
+        status = false;
+    }
+    else {
+        status = true;
+    }
 }

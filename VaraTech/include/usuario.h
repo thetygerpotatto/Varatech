@@ -1,23 +1,41 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
+#include <iostream>
+enum Privilege {
+    seller, admin
+};
 
-class usuario
+class User
 {
     public:
-        usuario();
-        virtual ~usuario();
+        User(Privilege);
+        virtual ~User();
 
-        long GetCD() { return CD; }
-        void SetCD(long val) { CD = val; }
-        std::string Getname() { return name; }
-        void Setname(std::string val) { name = val; }
-
+        long GetCD();
+        void SetCD(long);
+        std::string Getname();
+        void Setname(std::string);
+        std::string Getlast_name();
+        void Setlast_name(std::string val);
+        std::string Getaddress();
+        void Setaddress(std::string val);
+        void Setpassword(std::string val);
+        std::string Getpassword();
+        bool Getstatus();
+        void togleStatus(short val);
     protected:
 
     private:
         long CD;
+        std::string password;
         std::string name;
+        std::string last_name;
+        std::string address;
+
+        bool status;
+
+        Privilege UserPrivilege;
 };
 
 #endif // USUARIO_H

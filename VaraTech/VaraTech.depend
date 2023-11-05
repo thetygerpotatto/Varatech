@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1699216748 source:c:\dev\varatech\varatech\src\usuario.cpp
+	"usuario.h"
+	<iostream>
+
+1699216750 c:\dev\varatech\varatech\include\usuario.h
+	<iostream>
+
+1699216721 source:c:\dev\varatech\varatech\main.cpp
+	<iostream>
+	<vector>
+	<usuario.h>
+
