@@ -8,6 +8,17 @@ Seller::Seller()
     UserPrivilege = Privilege::seller;
 }
 
+Seller::Seller(long CDa, std::string pssd, std::string nm, std::string lsnm, std::string addr, bool st, Privilege p)
+{
+    CD = CDa;
+    name = nm;
+    last_name = lsnm;
+    password = pssd;
+    address = addr;
+    status = st;
+    UserPrivilege = p;
+}
+
 Seller::~Seller()
 {
     //dtor

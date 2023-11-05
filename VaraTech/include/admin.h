@@ -8,6 +8,7 @@ class Admin : public User
 {
     public:
         Admin();
+        Admin(long, std::string, std::string, std::string, std::string, bool, Privilege);
         virtual ~Admin();
         void sayhello();
 

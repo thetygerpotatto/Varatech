@@ -8,6 +8,7 @@ class Seller : public User
 {
     public:
         Seller();
+        Seller(long, std::string, std::string, std::string, std::string, bool, Privilege);
         virtual ~Seller();
 
     protected:

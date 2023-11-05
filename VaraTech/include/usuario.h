@@ -11,6 +11,7 @@ class User
 {
     public:
         User();
+        User(long, std::string, std::string, std::string, std::string, bool, Privilege);
         virtual ~User();
 
         long GetCD();
