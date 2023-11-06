@@ -23,6 +23,7 @@ Admin::~Admin()
     //dtor
 }
 
-void Admin::sayhello() {
-    std::cout << "hello my name is " << name << "\n";
+
+void Admin::modifyUserStatus(User *Usr, short state) {
+    Usr->togleStatus(state);
 }

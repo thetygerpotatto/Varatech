@@ -3,10 +3,10 @@
 	"usuario.h"
 	<iostream>
 
-1699225462 c:\dev\varatech\varatech\include\usuario.h
+1699248358 c:\dev\varatech\varatech\include\usuario.h
 	<iostream>
 
-1699245447 source:c:\dev\varatech\varatech\main.cpp
+1699249303 source:c:\dev\varatech\varatech\main.cpp
 	<iostream>
 	<vector>
 	<fstream>
@@ -17,10 +17,10 @@
 	<admin.h>
 	<seller.h>
 
-1699242185 source:c:\dev\varatech\varatech\src\admin.cpp
+1699249274 source:c:\dev\varatech\varatech\src\admin.cpp
 	"admin.h"
 
-1699226388 c:\dev\varatech\varatech\include\admin.h
+1699249063 c:\dev\varatech\varatech\include\admin.h
 	<iostream>
 	"usuario.h"
 

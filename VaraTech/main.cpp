@@ -5,7 +5,6 @@
 #include <sstream>
 #include <cstdlib>
 
-
 #include <usuario.h>
 #include <admin.h>
 #include <seller.h>
@@ -17,11 +16,14 @@ void write_database();
 int main()
 {
     read_database();
+
+    Admin *ad = (Admin *)users[0];
+    ad->modifyUserStatus(users[1], 0);
     for (int i = 0; i < users.size(); i++) {
         std::cout << "CD: " << users[i]->GetCD() << " contraseña: " << users[i]->Getpassword() << " nombre: " << users[i]->Getname() << " apellido: " << users[i]->Getlast_name() << " direccion: " << users[i]->Getaddress() << " estado: " << users[i]->Getstatus() << " nivel de privilegio: " << users[i]->getPrivillege() << std::endl;
     }
 
-    ((Admin *)users[0])->sayhello();
+
     write_database();
     return 0;
 }

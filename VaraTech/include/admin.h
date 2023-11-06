@@ -10,7 +10,7 @@ class Admin : public User
         Admin();
         Admin(long, std::string, std::string, std::string, std::string, bool, Privilege);
         virtual ~Admin();
-        void sayhello();
+        void modifyUserStatus(User *, short);
 
     protected:
 

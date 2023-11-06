@@ -25,7 +25,7 @@ class User
         void Setpassword(std::string val);
         std::string Getpassword();
         bool Getstatus();
-        void togleStatus(short val);
+        void togleStatus(short);
         Privilege getPrivillege();
     protected:
         long CD;
