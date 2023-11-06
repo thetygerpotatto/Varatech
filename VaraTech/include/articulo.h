@@ -9,7 +9,8 @@ class Articulo
         Articulo();
         Articulo(long , std::string, int, int, bool, bool); //id producto, nombre, precio, cantidad en stock, disponibilidad, nuevo-true/regresado por reclamo-false
         virtual ~Articulo();
-
+        long GetP_id();
+        void setP_id(long);
         std::string Get_name();
         void Set_name(std::string);
         int Get_price();

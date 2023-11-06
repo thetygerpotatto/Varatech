@@ -6,7 +6,7 @@
 1699248358 c:\dev\varatech\varatech\include\usuario.h
 	<iostream>
 
-1699249303 source:c:\dev\varatech\varatech\main.cpp
+1699254022 source:c:\dev\varatech\varatech\main.cpp
 	<iostream>
 	<vector>
 	<fstream>
@@ -16,6 +16,7 @@
 	<usuario.h>
 	<admin.h>
 	<seller.h>
+	<articulo.h>
 
 1699249274 source:c:\dev\varatech\varatech\src\admin.cpp
 	"admin.h"
@@ -29,5 +30,12 @@
 
 1699226402 c:\dev\varatech\varatech\include\seller.h
 	"usuario.h"
+	<iostream>
+
+1699254054 source:c:\dev\varatech\varatech\src\articulo.cpp
+	"Articulo.h"
+	<iostream>
+
+1699253782 c:\dev\varatech\varatech\include\articulo.h
 	<iostream>
 

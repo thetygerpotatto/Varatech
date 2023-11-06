@@ -25,6 +25,14 @@ Articulo::~Articulo()
 }
 
 
+long Articulo::GetP_id() {
+    return this->P_id;
+}
+
+void Articulo::setP_id(long id) {
+    this->P_id = id;
+}
+
 std::string Articulo::Get_name()
 {
     return name;
