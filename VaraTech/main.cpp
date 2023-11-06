@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <ostream>
 #include <sstream>
 #include <cstdlib>
 
@@ -12,19 +13,23 @@
 std::vector<User*> users;
 
 void read_database();
-
+void write_database();
 int main()
 {
     read_database();
     for (int i = 0; i < users.size(); i++) {
         std::cout << "CD: " << users[i]->GetCD() << " contraseña: " << users[i]->Getpassword() << " nombre: " << users[i]->Getname() << " apellido: " << users[i]->Getlast_name() << " direccion: " << users[i]->Getaddress() << " estado: " << users[i]->Getstatus() << " nivel de privilegio: " << users[i]->getPrivillege() << std::endl;
     }
+
+    ((Admin *)users[0])->sayhello();
+    write_database();
     return 0;
 }
 
 void read_database() {
+    //lectura de los usario de la base de datos
     std::ifstream InputFile;
-    InputFile.open("C:\\dev\\Varatech\\VaraTech\\db\\Users.csv");
+    InputFile.open("db/Users.csv");
 
     std::string line;
     while(std::getline(InputFile, line)) {
@@ -69,13 +74,22 @@ void read_database() {
                     u = new Admin(CD, password, name, last_name, address, status, UserPrivilege);
                 }break;
         }
-
         users.push_back(u);
-
-
-
-
         line = "";
+
     }
+    // lectura de articulos
+}
+
+
+void write_database() {
+    std::ofstream OutputFile;
+    OutputFile.open("db/Users.csv");
+    for (int i = 0; i < users.size(); i++) {
+        OutputFile << users[i]->GetCD() << "," << users[i]->Getpassword() << "," << users[i]->Getname() << ","
+                   << users[i]->Getlast_name() << "," << users[i]->Getaddress() << "," << users[i]->Getstatus() << ","
+                   << users[i]->getPrivillege() << "\n";
+    }
+    OutputFile.close();
 }
 

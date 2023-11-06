@@ -24,5 +24,5 @@ Admin::~Admin()
 }
 
 void Admin::sayhello() {
-    std::cout << "hello\n";
+    std::cout << "hello my name is " << name << "\n";
 }

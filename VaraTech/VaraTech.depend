@@ -6,17 +6,18 @@
 1699225462 c:\dev\varatech\varatech\include\usuario.h
 	<iostream>
 
-1699228133 source:c:\dev\varatech\varatech\main.cpp
+1699245447 source:c:\dev\varatech\varatech\main.cpp
 	<iostream>
 	<vector>
 	<fstream>
+	<ostream>
 	<sstream>
 	<cstdlib>
 	<usuario.h>
 	<admin.h>
 	<seller.h>
 
-1699228262 source:c:\dev\varatech\varatech\src\admin.cpp
+1699242185 source:c:\dev\varatech\varatech\src\admin.cpp
 	"admin.h"
 
 1699226388 c:\dev\varatech\varatech\include\admin.h
