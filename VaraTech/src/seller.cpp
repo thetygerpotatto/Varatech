@@ -10,7 +10,7 @@ Seller::Seller()
 
 Seller::Seller(long CDa, std::string pssd, std::string nm, std::string lsnm, std::string addr, bool st, Privilege p)
 {
-    CD = CDa;
+    CC = CDa;
     name = nm;
     last_name = lsnm;
     password = pssd;

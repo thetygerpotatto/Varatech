@@ -3,32 +3,38 @@
 
 #include <iostream>
 
-class Articulo
+class Article
 {
     public:
-        Articulo();
-        Articulo(long , std::string, int, int, bool, bool); //id producto, nombre, precio, cantidad en stock, disponibilidad, nuevo-true/regresado por reclamo-false
-        virtual ~Articulo();
-        long GetP_id();
-        void setP_id(long);
-        std::string Get_name();
-        void Set_name(std::string);
-        int Get_price();
-        void Set_price(int);
-        int Get_quantities();
-        void Set_quantities(int);
-        bool Get_is_avaiable();
-        void Set_is_avaiable(short);
-        bool Get_is_new();
-        void Set_is_new(short);
+        Article();
+        Article(long , std::string, int, int, bool, bool); //id producto, nombre, precio, cantidad en stock, disponibilidad, nuevo-true/regresado por reclamo-false
+        virtual ~Article();
+
+        long GetId();
+        void SetId(long);
+
+        std::string GetName();
+        void SetName(std::string);
+
+        int GetPrice();
+        void SetPrice(int);
+
+        int GetQuantities();
+        void SetQuantities(int);
+
+        bool GetIsAvaiable();
+        void SetIsAvaiable(short);
+
+        bool GetIsNew();
+        void SetIsNew(short);
 
     protected:
-        long P_id;
+        long ID;
         std::string name;
         int price;
         int quantities;
-        bool is_avaiable;
-        bool is_new;
+        bool isAvaiable;
+        bool isNew;
     private:
 
 

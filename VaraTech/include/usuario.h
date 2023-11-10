@@ -14,23 +14,30 @@ class User
         User(long, std::string, std::string, std::string, std::string, bool, Privilege);
         virtual ~User();
 
-        long GetCD();
-        void SetCD(long);
-        bool look_for_id(int);
-        std::string Getname();
+        long GetCC();
+        void SetCC(long);
+
+        bool list_users(int);
+
+        std::string GetName();
         void Setname(std::string);
-        std::string Getlast_name();
-        void Setlast_name(std::string val);
-        std::string Getaddress();
-        void Setaddress(std::string val);
-        void Setpassword(std::string val);
-        std::string Getpassword();
-        bool Getstatus();
-        void togleStatus(short);
-        Privilege getPrivillege();
-        Privilege setPrivillege(int val);
+
+        std::string GetLastName();
+        void SetLastName(std::string val);
+
+        std::string GetAddress();
+        void SetAddress(std::string val);
+
+        void SetPassword(std::string val);
+        std::string GetPassword();
+
+        bool GetStatus();
+        void ToggleStatus(short);
+
+        Privilege GetPrivillege();
+        Privilege SetPrivillege(int val);
     protected:
-        long CD;
+        long CC;
         std::string password;
         std::string name;
         std::string last_name;
@@ -38,6 +45,7 @@ class User
 
         bool status;
         Privilege UserPrivilege;
+
     private:
 
 

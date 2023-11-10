@@ -10,7 +10,7 @@ User::User()
 
 User::User(long CDa, std::string pssd, std::string nm, std::string lsnm, std::string addr, bool st, Privilege p)
 {
-    CD = CDa;
+    CC = CDa;
     name = nm;
     last_name = lsnm;
     password = pssd;
@@ -27,15 +27,15 @@ User::~User()
 }
 
 
-long User::GetCD() {
-    return CD;
+long User::GetCC() {
+    return CC;
 }
 
-void User::SetCD(long val) {
-    CD = val;
+void User::SetCC(long val) {
+    CC = val;
 }
 
-std::string User::Getname() {
+std::string User::GetName() {
     return name;
 }
 
@@ -43,35 +43,35 @@ void User::Setname(std::string val) {
     name = val;
 }
 
-std::string User::Getlast_name() {
+std::string User::GetLastName() {
     return last_name;
 }
 
-void User::Setlast_name(std::string val) {
+void User::SetLastName(std::string val) {
     last_name = val;
 }
 
-void User::Setaddress(std::string val) {
+void User::SetAddress(std::string val) {
     address = val;
 }
 
-std::string User::Getaddress() {
+std::string User::GetAddress() {
     return address;
 }
 
-void User::Setpassword(std::string val) {
+void User::SetPassword(std::string val) {
     password = val;
 }
 
-std::string User::Getpassword() {
+std::string User::GetPassword() {
     return password;
 }
 
-bool User::Getstatus() {
+bool User::GetStatus() {
     return status;
 }
 
-void User::togleStatus(short val) {
+void User::ToggleStatus(short val) {
     if (val == 0) {
         status = false;
     }
@@ -80,11 +80,11 @@ void User::togleStatus(short val) {
     }
 }
 
-Privilege User::getPrivillege() {
+Privilege User::GetPrivillege() {
     return UserPrivilege;
 }
 
-Privilege User::setPrivillege(int val) {
+Privilege User::SetPrivillege(int val) {
 }
 
 void new_user()

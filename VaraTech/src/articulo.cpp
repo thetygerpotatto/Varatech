@@ -3,92 +3,92 @@
 
 using namespace std;
 
-Articulo::Articulo()
+Article::Article()
 {
     name = "-";
-    is_avaiable = is_new = true;
+    isAvaiable = isNew = true;
 }
 
-Articulo::Articulo(long P_id, std::string name, int price, int quantities, bool is_avaiable, bool is_new)
+Article::Article(long ID, std::string name, int price, int quantities, bool isAvaiable, bool isNew)
 {
-    this->P_id = P_id;
+    this->ID = ID;
     this->price = price;
     this->quantities = quantities;
     this->name = name;
-    this->is_avaiable = is_avaiable;
-    this->is_new = is_new;
+    this->isAvaiable = isAvaiable;
+    this->isNew = isNew;
 }
 
-Articulo::~Articulo()
+Article::~Article()
 {
     //dtor
 }
 
 
-long Articulo::GetP_id() {
-    return this->P_id;
+long Article::GetId() {
+    return this->ID;
 }
 
-void Articulo::setP_id(long id) {
-    this->P_id = id;
+void Article::SetId(long id) {
+    this->ID = id;
 }
 
-std::string Articulo::Get_name()
+std::string Article::GetName()
 {
     return name;
 }
 
-void Articulo::Set_name(std::string name)
+void Article::SetName(std::string name)
 {
     this->name = name;
 }
 
-int Articulo::Get_price()
+int Article::GetPrice()
 {
     return this->price;
 }
 
-void Articulo::Set_price(int price)
+void Article::SetPrice(int price)
 {
     this->price = price;
 }
 
-int Articulo::Get_quantities()
+int Article::GetQuantities()
 {
     return this->quantities;
 }
 
-void Articulo::Set_quantities(int quantities)
+void Article::SetQuantities(int quantities)
 {
     this->quantities = quantities;
 }
 
-bool Articulo::Get_is_avaiable()
+bool Article::GetIsAvaiable()
 {
-    return is_avaiable;
+    return isAvaiable;
 }
 
-void Articulo::Set_is_avaiable(short av)
+void Article::SetIsAvaiable(short av)
 {
     if (av == 0) {
-        is_avaiable = false;
+        isAvaiable = false;
     }
     else {
-        is_avaiable = true;
+        isAvaiable = true;
     }
 }
 
-bool Articulo::Get_is_new()
+bool Article::GetIsNew()
 {
-    return is_new;
+    return isNew;
 }
 
-void Articulo::Set_is_new(short ne)
+void Article::SetIsNew(short ne)
 {
     if (ne == 0) {
-        is_new = false;
+        isNew = false;
     }
     else {
-        is_new = true;
+        isNew = true;
     }
 }

@@ -12,13 +12,18 @@
 
 using namespace std;
 
+User *Actual_user;
 std::vector<User*> users;
-std::vector<Articulo*> articles;
+std::vector<Article*> articles;
 std::vector<User*> vec_gerente;
 
 void read_database();
 void write_database();
 void show_user_database();
+void list_users();
+void login();
+int validate_login(long, std::string);
+void menu_admin();
 
 void read_database() {
 
@@ -55,11 +60,6 @@ void read_database() {
         User *u;
 
         switch (UserPrivilege) {
-            case Privilege::none:
-                {
-                    u = new User(CD, password, name, last_name, address, status, UserPrivilege);
-                }break;
-
             case Privilege::seller:
                 {
                     u = new Seller(CD, password, name, last_name, address, status, UserPrivilege);
@@ -105,7 +105,7 @@ void read_database() {
         std::getline(InputString, tempString, ',');
         is_new = (bool)stoi(tempString);
 
-        Articulo* art = new Articulo(id, name, price, quantities, is_aviable, is_new);
+        Article* art = new Article(id, name, price, quantities, is_aviable, is_new);
         articles.push_back(art);
     }
 }
@@ -114,9 +114,9 @@ void show_user_database() {
     system("cls");//limpia pantalla;
     for (int i = 0; i < users.size(); i++) {
             string priv;
-            users[i]->getPrivillege() == 1 ? priv = "Vendedor " : priv = "Administrador ";
-            std::cout << "CD: " << users[i]->GetCD() << " Nombre: " << users[i]->Getname()
-                      << " Apellido " << users[i]->Getlast_name() << " Estado: " << users[i]->Getstatus() << " Tipo de usuario: " << priv << "\n\n";
+            users[i]->GetPrivillege() == 1 ? priv = "Vendedor " : priv = "Administrador ";
+            std::cout << "CD: " << users[i]->GetCC() << " Nombre: " << users[i]->GetName()
+                      << " Apellido " << users[i]->GetLastName() << " Estado: " << users[i]->GetStatus() << " Tipo de usuario: " << priv << "\n\n";
     }
     system("pause");
 }
@@ -126,27 +126,24 @@ void write_database() {
     std::ofstream OutputFile;
     OutputFile.open("db/Users.csv");
     for (int i = 0; i < users.size(); i++) {
-        OutputFile << users[i]->GetCD() << "," << users[i]->Getpassword() << "," << users[i]->Getname() << ","
-                   << users[i]->Getlast_name() << "," << users[i]->Getaddress() << "," << users[i]->Getstatus() << ","
-                   << users[i]->getPrivillege() << "\n";
+        OutputFile << users[i]->GetCC() << "," << users[i]->GetPassword() << "," << users[i]->GetName() << ","
+                   << users[i]->GetLastName() << "," << users[i]->GetAddress() << "," << users[i]->GetStatus() << ","
+                   << users[i]->GetPrivillege() << "\n";
     }
     OutputFile.close();
 
     //Escritura de articulos
     OutputFile.open("db/Articles.csv");
     for (int i = 0; i < articles.size(); i++) {
-        OutputFile << articles[i]->GetP_id() << "," << articles[i]->Get_name() << "," << articles[i]->Get_price() << ","
-                   << articles[i]->Get_quantities() << "," << articles[i]->Get_is_avaiable() << "," << articles[i]->Get_is_new() << "\n";
+        OutputFile << articles[i]->GetId() << "," << articles[i]->GetName() << "," << articles[i]->GetPrice() << ","
+                   << articles[i]->GetQuantities() << "," << articles[i]->GetIsAvaiable() << "," << articles[i]->GetIsNew() << "\n";
     }
     OutputFile.close();
 }
 
 
-bool look_for_id()
+void list_users()
 {
-    std::ifstream InputFile;
-    InputFile.open("db/Users.csv");
-
     long search_;
     bool search_result = false;
 
@@ -157,11 +154,11 @@ bool look_for_id()
 
         for (int i = 0; i < users.size(); i++) {
 
-            if (search_ == users[i]->GetCD()){
+            if (search_ == users[i]->GetCC()){
 
-                std::cout << "CD: " << users[i]->GetCD() <<" nombre: " << users[i]->Getname() << " apellido: " << users[i]->Getlast_name()
-                          << " direccion: " << users[i]->Getaddress() << " estado: " << users[i]->Getstatus()
-                          << " nivel de privilegio: " << users[i]->getPrivillege() << std::endl;
+                std::cout << "CC: " << users[i]->GetCC() <<" nombre: " << users[i]->GetName() << " apellido: " << users[i]->GetLastName()
+                          << " direccion: " << users[i]->GetAddress() << " estado: " << users[i]->GetStatus()
+                          << " nivel de privilegio: " << users[i]->GetPrivillege() << std::endl;
                 search_result = true;
                 break;
             }
@@ -172,12 +169,13 @@ bool look_for_id()
             cout<<"no se encontro el usuario"<<endl<<"desea buscar otro usuario?, Y/N"<<endl;
             fflush(stdin);
 
-            string continue_;
-            cin>>continue_;
-            if(continue_ == "y"){
+            char continue_;
+            std::cin >> continue_;
+            continue_ = std::toupper(continue_);
+            if(continue_ == 'y'){
                 continue;
                 }
-            if(continue_ == "n"){
+            if(continue_ == 'N'){
                 search_result = true;
                 break;
             }
@@ -206,21 +204,26 @@ void read_user(){
     cout<<"Ingresar un nuevo usuario"<<endl<<endl;
 
     cout<<"Ingresar cedula"<<endl;
-    cin>>new_cd;
+    cin>> new_cd;
+    std::fflush(stdin);
 
     cout<<"Ingresar nombre"<<endl;
     cin >> new_name;
+    std::fflush(stdin);
 
     cout<<"Ingresar apellido"<<endl;
     cin>>new_last_name;
+    std::fflush(stdin);
 
     cout<<"Ingresar contraseña"<<endl;
     cin >> new_password;
+    std::fflush(stdin);
 
 
-    cout<<"ingrese nivel de prioridad de nuevo usuario(1,2)"<<endl;
+    cout<<"ingrese nivel de prioridad de nuevo usuario(1- Vendedor ,2-Admin)"<<endl;
     cin>>p;
-    new_privilege = (Privilege)p;
+    std::fflush(stdin);
+    new_privilege = static_cast<Privilege>(p);
 
     User *NewUser;
     switch (new_privilege) {
@@ -237,19 +240,6 @@ void read_user(){
 }
 
 
-/*void leer_datos_gerente(){
-    system("cls"); //LIMPIAR PANTALLA
-    cout<<"Ingresar un nuevo Gerente"<<endl<<endl;
-
-    Geren.Setarea();
-    Geren.Setcode_ID();
-    Geren.Setdatos_gerente();
-
-    vec_gerente.push_back(Geren);
-    system("pause");
-    system("cls");
-}
-*/
 
 void listado_datos_Admin(){
     system("cls");
@@ -259,35 +249,82 @@ void listado_datos_Admin(){
 
 }
 
-void menu(){
-    read_database();
+void menu_admin(){
     int opc;
     do{
         cout<<"1. Registrar Usuario\n";
         cout<<"2. Listar datos de usuarios\n";
         cout<<"3. Buscar usuario(id)\n";
+        cout<<"4. Añadir Articulo\n";
+        cout<<"5. listar Articulos\n";
         cout<<"0. Salir\n";
-        cout<<"Seleccione una opcion";
+        cout<<"Seleccione una opcion: ";
 
         cin>>opc;
 
         switch(opc){
             case 1: read_user();break;
             case 2: show_user_database(); break;
-            case 3: look_for_id(); break;
+            case 3: list_users(); break;
             case 0: break;
             default:
                 cout<<"Opcion incorrecta";
         }
 
     }while(opc!=0);
+}
+
+void login() {
+    read_database();
+    bool loop  = true;
+    long CC;
+    std::string password;
+    do{
+        cout<<"Sistema de logueo de la tienda Varatech\n";
+        std::cout <<"Ingrese su CC: ";
+        cin>>CC;
+
+        std::cout <<"Ingrese su contraseña: ";
+        std::fflush(stdin);
+        std::getline(std::cin, password);
+
+        int userIndex = validate_login(CC, password);
+        if (userIndex != -1) {
+            system("cls");
+            Actual_user = users[userIndex];
+            menu_admin();
+
+            cout<<"1- para entrar con otro usuario \n 0- para salir\n";
+            std::cin >> loop;
+
+            system("cls");
+        }
+        else {
+            cout<<"Contraseña o nombre de usuario incorrectos\n";
+            system("pause");
+            system("cls");
+        }
+
+
+    }while(loop);
     write_database();
 }
+
+int validate_login(long CC, std::string password) {
+
+    for (int i = 0; i < users.size(); i++) {
+        if (users[i]->GetCC() == CC && users[i]->GetPassword() == password) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 
 int main()
 {
 
-    menu();
+    login();
 
     return 0;
 

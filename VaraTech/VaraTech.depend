@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1699292922 source:c:\dev\varatech\varatech\src\usuario.cpp
+1699580811 source:c:\dev\varatech\varatech\src\usuario.cpp
 	"usuario.h"
 	<iostream>
 
-1699292748 c:\dev\varatech\varatech\include\usuario.h
+1699585321 c:\dev\varatech\varatech\include\usuario.h
 	<iostream>
 
-1699254022 source:c:\dev\varatech\varatech\main.cpp
+1699585716 source:c:\dev\varatech\varatech\main.cpp
 	<iostream>
 	<vector>
 	<fstream>
@@ -18,25 +18,25 @@
 	<seller.h>
 	<articulo.h>
 
-1699288150 source:c:\dev\varatech\varatech\src\admin.cpp
+1699580092 source:c:\dev\varatech\varatech\src\admin.cpp
 	"admin.h"
 
 1699288102 c:\dev\varatech\varatech\include\admin.h
 	<iostream>
 	"usuario.h"
 
-1699254206 source:c:\dev\varatech\varatech\src\seller.cpp
+1699580094 source:c:\dev\varatech\varatech\src\seller.cpp
 	"seller.h"
 
 1699254206 c:\dev\varatech\varatech\include\seller.h
 	"usuario.h"
 	<iostream>
 
-1699254206 source:c:\dev\varatech\varatech\src\articulo.cpp
+1699580567 source:c:\dev\varatech\varatech\src\articulo.cpp
 	"Articulo.h"
 	<iostream>
 
-1699254206 c:\dev\varatech\varatech\include\articulo.h
+1699580651 c:\dev\varatech\varatech\include\articulo.h
 	<iostream>
 
 1699294461 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\main.cpp
