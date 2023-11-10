@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1699228274 source:c:\dev\varatech\varatech\src\usuario.cpp
+1699292922 source:c:\dev\varatech\varatech\src\usuario.cpp
 	"usuario.h"
 	<iostream>
 
-1699248358 c:\dev\varatech\varatech\include\usuario.h
+1699292748 c:\dev\varatech\varatech\include\usuario.h
 	<iostream>
 
 1699254022 source:c:\dev\varatech\varatech\main.cpp
@@ -18,24 +18,137 @@
 	<seller.h>
 	<articulo.h>
 
-1699249274 source:c:\dev\varatech\varatech\src\admin.cpp
+1699288150 source:c:\dev\varatech\varatech\src\admin.cpp
 	"admin.h"
 
-1699249063 c:\dev\varatech\varatech\include\admin.h
+1699288102 c:\dev\varatech\varatech\include\admin.h
 	<iostream>
 	"usuario.h"
 
-1699228267 source:c:\dev\varatech\varatech\src\seller.cpp
+1699254206 source:c:\dev\varatech\varatech\src\seller.cpp
 	"seller.h"
 
-1699226402 c:\dev\varatech\varatech\include\seller.h
+1699254206 c:\dev\varatech\varatech\include\seller.h
 	"usuario.h"
 	<iostream>
 
-1699254054 source:c:\dev\varatech\varatech\src\articulo.cpp
+1699254206 source:c:\dev\varatech\varatech\src\articulo.cpp
 	"Articulo.h"
 	<iostream>
 
-1699253782 c:\dev\varatech\varatech\include\articulo.h
+1699254206 c:\dev\varatech\varatech\include\articulo.h
+	<iostream>
+
+1699294461 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\main.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<ostream>
+	<sstream>
+	<cstdlib>
+	<usuario.h>
+	<admin.h>
+	<seller.h>
+	<articulo.h>
+
+1699292746 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\usuario.h
+	<iostream>
+
+1699288100 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\admin.h
+	<iostream>
+	"usuario.h"
+
+1699254205 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\seller.h
+	"usuario.h"
+	<iostream>
+
+1699254205 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\articulo.h
+	<iostream>
+
+1699288148 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\admin.cpp
+	"admin.h"
+
+1699254205 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\articulo.cpp
+	"Articulo.h"
+	<iostream>
+
+1699254205 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\seller.cpp
+	"seller.h"
+
+1699292921 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\usuario.cpp
+	"usuario.h"
+	<iostream>
+
+1699287204 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\main_peter.cpp
+	<administrador.h>
+	<gerente.h>
+	<datos.h>
+	<vector>
+
+1699238698 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\administrador.h
+	<iostream>
+	"datos.h"
+
+1699239312 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\datos.h
+	<iostream>
+
+1699238698 c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\include\gerente.h
+	<iostream>
+	"datos.h"
+
+1699285410 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\administrador.cpp
+	"administrador.h"
+	<iostream>
+
+1699285414 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\datos.cpp
+	"datos.h"
+	<iostream>
+
+1699285420 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\gerente.cpp
+	"gerente.h"
+	<iostream>
+
+1699291302 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\menu.cpp
+
+1699291241 source:c:\users\dleni\onedrive\documentos\uni\cpp\varatech-main\varatech\src\menu.cpp
+
+1699299179 source:c:\pepe\varatech\main.cpp
+	<iostream>
+	<vector>
+	<fstream>
+	<ostream>
+	<sstream>
+	<cstdlib>
+	<usuario.h>
+	<admin.h>
+	<seller.h>
+	<articulo.h>
+
+1699292746 c:\pepe\varatech\include\usuario.h
+	<iostream>
+
+1699288100 c:\pepe\varatech\include\admin.h
+	<iostream>
+	"usuario.h"
+
+1699254205 c:\pepe\varatech\include\seller.h
+	"usuario.h"
+	<iostream>
+
+1699254205 c:\pepe\varatech\include\articulo.h
+	<iostream>
+
+1699288148 source:c:\pepe\varatech\src\admin.cpp
+	"admin.h"
+
+1699254205 source:c:\pepe\varatech\src\articulo.cpp
+	"Articulo.h"
+	<iostream>
+
+1699254205 source:c:\pepe\varatech\src\seller.cpp
+	"seller.h"
+
+1699292921 source:c:\pepe\varatech\src\usuario.cpp
+	"usuario.h"
 	<iostream>
 

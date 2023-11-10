@@ -26,6 +26,7 @@ User::~User()
     //dtor
 }
 
+
 long User::GetCD() {
     return CD;
 }
@@ -81,4 +82,12 @@ void User::togleStatus(short val) {
 
 Privilege User::getPrivillege() {
     return UserPrivilege;
+}
+
+Privilege User::setPrivillege(int val) {
+}
+
+void new_user()
+{
+
 }

@@ -16,6 +16,7 @@ class User
 
         long GetCD();
         void SetCD(long);
+        bool look_for_id(int);
         std::string Getname();
         void Setname(std::string);
         std::string Getlast_name();
@@ -27,6 +28,7 @@ class User
         bool Getstatus();
         void togleStatus(short);
         Privilege getPrivillege();
+        Privilege setPrivillege(int val);
     protected:
         long CD;
         std::string password;

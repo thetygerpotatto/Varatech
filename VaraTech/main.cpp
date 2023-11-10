@@ -10,34 +10,25 @@
 #include <seller.h>
 #include <articulo.h>
 
+using namespace std;
+
 std::vector<User*> users;
 std::vector<Articulo*> articles;
+std::vector<User*> vec_gerente;
 
 void read_database();
 void write_database();
-
-int main()
-{
-    read_database();
-
-
-
-    for (int i = 0; i < users.size(); i++) {
-        std::cout << "CD: " << users[i]->GetCD() << " contraseña: " << users[i]->Getpassword() << " nombre: " << users[i]->Getname() << " apellido: " << users[i]->Getlast_name() << " direccion: " << users[i]->Getaddress() << " estado: " << users[i]->Getstatus() << " nivel de privilegio: " << users[i]->getPrivillege() << std::endl;
-    }
-    std::cout << articles[1]->Get_name();
-
-    write_database();
-    return 0;
-}
+void show_user_database();
 
 void read_database() {
+
     //lectura de los usario de la base de datos
     std::ifstream InputFile;
     InputFile.open("db/Users.csv");
 
     std::string line;
     while(std::getline(InputFile, line)) {
+
         long CD;
         std::string password;
         std::string name;
@@ -88,7 +79,6 @@ void read_database() {
 
     InputFile.open("db/Articles.csv");
     while(std::getline(InputFile, line)) {
-        int t;
         long id;
         std::string name;
         int price;
@@ -99,15 +89,19 @@ void read_database() {
 
         std::stringstream InputString(line);
         std::getline(InputString, tempString,',');
-
         id = stol(tempString);
+
         std::getline(InputString, name, ',');
+
         std::getline(InputString, tempString, ',');
         price = stoi(tempString);
+
         std::getline(InputString, tempString, ',');
         quantities = stoi(tempString);
+
         std::getline(InputString, tempString, ',');
         is_aviable = (bool)stoi(tempString);
+
         std::getline(InputString, tempString, ',');
         is_new = (bool)stoi(tempString);
 
@@ -116,10 +110,20 @@ void read_database() {
     }
 }
 
+void show_user_database() {
+    system("cls");//limpia pantalla;
+    for (int i = 0; i < users.size(); i++) {
+            string priv;
+            users[i]->getPrivillege() == 1 ? priv = "Vendedor " : priv = "Administrador ";
+            std::cout << "CD: " << users[i]->GetCD() << " Nombre: " << users[i]->Getname()
+                      << " Apellido " << users[i]->Getlast_name() << " Estado: " << users[i]->Getstatus() << " Tipo de usuario: " << priv << "\n\n";
+    }
+    system("pause");
+}
+
 //Funcion parar guardar los usuarios y los ariculos
 void write_database() {
     std::ofstream OutputFile;
-
     OutputFile.open("db/Users.csv");
     for (int i = 0; i < users.size(); i++) {
         OutputFile << users[i]->GetCD() << "," << users[i]->Getpassword() << "," << users[i]->Getname() << ","
@@ -128,11 +132,164 @@ void write_database() {
     }
     OutputFile.close();
 
+    //Escritura de articulos
     OutputFile.open("db/Articles.csv");
     for (int i = 0; i < articles.size(); i++) {
         OutputFile << articles[i]->GetP_id() << "," << articles[i]->Get_name() << "," << articles[i]->Get_price() << ","
                    << articles[i]->Get_quantities() << "," << articles[i]->Get_is_avaiable() << "," << articles[i]->Get_is_new() << "\n";
     }
     OutputFile.close();
+}
+
+
+bool look_for_id()
+{
+    std::ifstream InputFile;
+    InputFile.open("db/Users.csv");
+
+    long search_;
+    bool search_result = false;
+
+    while (search_result == false)
+    {
+        cout<<"Ingrese un id de usuario para buscar (C.C)"<<endl;
+        cin>>search_;
+
+        for (int i = 0; i < users.size(); i++) {
+
+            if (search_ == users[i]->GetCD()){
+
+                std::cout << "CD: " << users[i]->GetCD() <<" nombre: " << users[i]->Getname() << " apellido: " << users[i]->Getlast_name()
+                          << " direccion: " << users[i]->Getaddress() << " estado: " << users[i]->Getstatus()
+                          << " nivel de privilegio: " << users[i]->getPrivillege() << std::endl;
+                search_result = true;
+                break;
+            }
+        }
+
+        if (search_result == false){
+
+            cout<<"no se encontro el usuario"<<endl<<"desea buscar otro usuario?, Y/N"<<endl;
+            fflush(stdin);
+
+            string continue_;
+            cin>>continue_;
+            if(continue_ == "y"){
+                continue;
+                }
+            if(continue_ == "n"){
+                search_result = true;
+                break;
+            }
+        }
+    }
+}
+
+bool look_for_privilege()
+{
+
+}
+
+
+void read_user(){
+
+    long new_cd;
+    string new_password;
+    string new_name;
+    string new_last_name;
+    string new_address = "-";
+    bool new_status = true;
+    int p;
+    Privilege new_privilege;
+
+    system("cls"); //LIMPIAR PANTALLA
+    cout<<"Ingresar un nuevo usuario"<<endl<<endl;
+
+    cout<<"Ingresar cedula"<<endl;
+    cin>>new_cd;
+
+    cout<<"Ingresar nombre"<<endl;
+    cin >> new_name;
+
+    cout<<"Ingresar apellido"<<endl;
+    cin>>new_last_name;
+
+    cout<<"Ingresar contraseña"<<endl;
+    cin >> new_password;
+
+
+    cout<<"ingrese nivel de prioridad de nuevo usuario(1,2)"<<endl;
+    cin>>p;
+    new_privilege = (Privilege)p;
+
+    User *NewUser;
+    switch (new_privilege) {
+        case Privilege::admin:
+            NewUser = new Admin(new_cd, new_password, new_name, new_last_name, new_address, new_status, new_privilege);
+            break;
+        case Privilege::seller:
+            NewUser = new Seller(new_cd, new_password, new_name, new_last_name, new_address, new_status, new_privilege);
+    }
+
+    users.push_back(NewUser);
+    system("pause");
+    system("cls");
+}
+
+
+/*void leer_datos_gerente(){
+    system("cls"); //LIMPIAR PANTALLA
+    cout<<"Ingresar un nuevo Gerente"<<endl<<endl;
+
+    Geren.Setarea();
+    Geren.Setcode_ID();
+    Geren.Setdatos_gerente();
+
+    vec_gerente.push_back(Geren);
+    system("pause");
+    system("cls");
+}
+*/
+
+void listado_datos_Admin(){
+    system("cls");
+    int tam = users.size();
+    string texto = "Cantidad de Usuarios listados [" + to_string(tam) + "]";
+    cout<<texto<<endl<<endl;
+
+}
+
+void menu(){
+    read_database();
+    int opc;
+    do{
+        cout<<"1. Registrar Usuario\n";
+        cout<<"2. Listar datos de usuarios\n";
+        cout<<"3. Buscar usuario(id)\n";
+        cout<<"0. Salir\n";
+        cout<<"Seleccione una opcion";
+
+        cin>>opc;
+
+        switch(opc){
+            case 1: read_user();break;
+            case 2: show_user_database(); break;
+            case 3: look_for_id(); break;
+            case 0: break;
+            default:
+                cout<<"Opcion incorrecta";
+        }
+
+    }while(opc!=0);
+    write_database();
+}
+
+int main()
+{
+
+    menu();
+
+    return 0;
+
 }
 
